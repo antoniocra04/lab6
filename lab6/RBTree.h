@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "RBTreeNode.h"
 
 class RBTree
@@ -9,20 +9,20 @@ private:
 
 	void LeftRotate(RBTreeNode* node);
 	void RightRotate(RBTreeNode* node);
-	RBTreeNode* FindInsertionPoint(const int& value);
 	void TreeAddFix(RBTreeNode* node);
 	void TreeDeleteFix(RBTreeNode* node);
 	void PrintRBTree(RBTreeNode* root, int space = 0, int count = 5);
+
+	/// <summary>
+	/// Изменить дочерний узел в родителе node на changeNode
+	/// </summary>
+	/// <param name="node">Узел в родителя которого нужно изменить</param>
+	/// <param name="changeNode">Узел на который нужно изменить</param>
 	void ChangeNodeInParent(RBTreeNode* node, RBTreeNode* changeNode);
+
 	RBTreeNode* GetSmallestRightNode(RBTreeNode* startNode);
 	void RemoveAll(RBTreeNode* node);
 	RBTreeNode* GetMin(RBTreeNode* root);
-	RBTreeNode* Insert(RBTreeNode* root, RBTreeNode* node);
-	RBTreeNode* Remove(RBTreeNode* root, const int& key);
-	void DeleteCase1(RBTreeNode* node);
-	void DeleteCase2(RBTreeNode* node);
-	bool DeleteCase3(RBTreeNode* sibling, RBTreeNode* parent, RBTreeNode* pointer);
-	bool DeleteCase4(RBTreeNode* sibling, RBTreeNode* parent, RBTreeNode* pointer);
 
 public:
 	RBTree();

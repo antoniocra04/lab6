@@ -16,9 +16,9 @@ void ValidInput(T& variable)
     }
 }
 
-/*!
- * \brief Меню и управление красно-черным деревом
- */
+/// <summary>
+/// Меню кчд
+/// </summary>
 void ControllerRBTree()
 {
     string menu = "Choose one of activity:\n1 - Add\n2 - Remove\n3 - Search\nq - Exit to main menu\nYour choice: ";
@@ -61,9 +61,9 @@ void ControllerRBTree()
     }
 }
 
-/*!
- * \brief Меню и управление АВЛ-деревом
- */
+/// <summary>
+/// Меню авл дерева
+/// </summary>
 void ControllerAVLTree()
 {
     string menu = "Choose one of activity:\n1 - Add\n2 - Remove\n3 - Search\nq - Exit to main menu\nYour choice: ";
