@@ -3,6 +3,58 @@
 #include "AVLTree.h"
 using namespace std;
 
+void PrintRBTree(const RBTreeNode* root, RBTree* tree, int space, int count)
+{
+    if (root == nullptr || root == tree->GetNil())
+    {
+        return;
+    }
+
+    space += count;
+    PrintRBTree(root->_right, tree, space, count);
+
+    cout << endl;
+
+    for (int i = count; i < space; i++) 
+    {
+        cout << " ";
+    }
+
+    if (root == tree->GetNil())
+    {
+        cout << "[]" << "\n";
+    }
+    else if (root->_color == Color::Black)
+    {
+        cout << root->_key << "\n";
+    }
+    else
+    {
+        cout << "\x1B[31m" << root->_key << "\033[0m\t\t" << "\n";
+    }
+
+    PrintRBTree(root->_left, tree, space, count);
+}
+
+void PrintAVLTree(const AVLTreeNode* root, int space, int count) {
+    if (root == nullptr) {
+        return;
+    }
+
+    space += count;
+    PrintAVLTree(root->_right, space, count);
+
+    cout << endl;
+
+    for (int i = count; i < space; i++) {
+        cout << " ";
+    }
+
+    cout << root->_key << "\n";
+    PrintAVLTree(root->_left, space, count);
+}
+
+
 template <typename T>
 void ValidInput(T& variable)
 {
@@ -21,32 +73,34 @@ void ValidInput(T& variable)
 /// </summary>
 void ControllerRBTree()
 {
-    string menu = "Choose one of activity:\n1 - Add\n2 - Remove\n3 - Search\nq - Exit to main menu\nYour choice: ";
+    string menu = "Choose one of activity:\
+                   \n1 - Add\n2 - Remove\n3 - Search\nq - Exit to main menu\nYour choice: ";
     int data;
-    RBTree tree;
+    RBTree* tree = new RBTree;
     char mode = '\0';
+    string enterMessage = "Enter value for ";
 
     while (mode != 'q')
     {
-        tree.VisualisateRBTree();
+        PrintRBTree(tree->GetRoot(), tree, 0, 5);
         cout << menu;
         ValidInput(mode);
         system("cls");
         switch (mode) {
         case '1':
-            cout << "Enter value for adding: ";
+            cout << enterMessage << "adding: ";
             ValidInput(data);
-            tree.AddNode(data);
+            tree->AddNode(data);
             break;
         case '2':
-            cout << "Enter value for deletion: ";
+            cout << enterMessage << "deletion: ";
             ValidInput(data);
-            tree.DeleteNode(data);
+            tree->DeleteNode(data);
             break;
         case '3':
-            cout << "Enter value for search: ";
+            cout << enterMessage << "search: ";
             ValidInput(data);
-            if (tree.Search(data) != nullptr)
+            if (tree->Search(data) != nullptr)
             {
                 cout << "Value " << data << " is contained in red-black tree!\n";
             }
@@ -66,32 +120,34 @@ void ControllerRBTree()
 /// </summary>
 void ControllerAVLTree()
 {
-    string menu = "Choose one of activity:\n1 - Add\n2 - Remove\n3 - Search\nq - Exit to main menu\nYour choice: ";
+    string menu = "Choose one of activity:\
+                   \n1 - Add\n2 - Remove\n3 - Search\nq - Exit to main menu\nYour choice: ";
     int value;
-    AVLTree tree;
+    AVLTree* tree = new AVLTree;
     char mode = '\0';
+    string enterMessage = "Enter value for ";
 
     while (mode != 'q')
     {
-        tree.VisualisateAVLTree();
+        PrintAVLTree(tree->GetRoot(), 0, 5);
         cout << menu;
         ValidInput(mode);
         system("cls");
         switch (mode) {
         case '1':
-            cout << "Enter value for adding: ";
+            cout << enterMessage << "adding: ";
             ValidInput(value);
-            tree.AddNode(value);
+            tree->AddNode(value);
             break;
         case '2':
-            cout << "Enter value for adding: ";
+            cout << enterMessage << "delete: ";
             ValidInput(value);
-            tree.DeleteNode(value);
+            tree->DeleteNode(value);
             break;
         case '3':
-            cout << "Enter value for search: ";
+            cout << enterMessage << "search: ";
             ValidInput(value);
-            if (tree.Search(value) != nullptr)
+            if (tree->Search(value) != nullptr)
             {
                 cout << "Value " << value << " is contained in AVL-tree!\n";
             }

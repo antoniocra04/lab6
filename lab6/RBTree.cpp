@@ -419,40 +419,14 @@ void RBTree::TreeDeleteFix(RBTreeNode* node)
 	node->_color = Color::Black;
 }
 
-void RBTree::PrintRBTree(RBTreeNode* root, int space, int count)
+const RBTreeNode* RBTree::GetRoot()
 {
-	if (root == nullptr) {
-		return;
-	}
-
-	space += count;
-	PrintRBTree(root->_right, space, count);
-
-	cout << endl;
-
-	for (int i = count; i < space; i++) {
-		cout << " ";
-	}
-	
-	if (root == _nil)
-	{
-		cout << "[]" << "\n";
-	}
-	else if (root->_color == Color::Black)
-	{
-		cout << root->_key << "\n";
-	}
-	else
-	{
-		cout << "\x1B[31m" << root->_key << "\033[0m\t\t" << "\n";
-	}
-
-	PrintRBTree(root->_left, space, count);
+	return _root;
 }
 
-void RBTree::VisualisateRBTree()
+const RBTreeNode* RBTree::GetNil()
 {
-	PrintRBTree(_root);
+	return _nil;
 }
 
 void RBTree::RemoveAll(RBTreeNode* node)

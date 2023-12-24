@@ -46,8 +46,8 @@ AVLTreeNode* AVLTree::RightRotate(AVLTreeNode* node)
 
 	FixHeight(node);
 	FixHeight(current);
-
 	return current;
+
 }
 
 AVLTreeNode* AVLTree::LeftRotate(AVLTreeNode* node)
@@ -59,7 +59,6 @@ AVLTreeNode* AVLTree::LeftRotate(AVLTreeNode* node)
 
 	FixHeight(node);
 	FixHeight(current);
-
 	return current;
 }
 
@@ -236,27 +235,9 @@ bool AVLTree::DeleteNode(const int& key)
 
 }
 
-void AVLTree::PrintAVLTree(AVLTreeNode* root, int space, int count) {
-	if (root == nullptr) {
-		return;
-	}
-
-	space += count;
-	PrintAVLTree(root->_right, space, count);
-
-	cout << endl;
-
-	for (int i = count; i < space; i++) {
-		cout << " ";
-	}
-
-	cout << root->_key << "\n";
-	PrintAVLTree(root->_left, space, count);
-}
-
-void AVLTree::VisualisateAVLTree()
+const AVLTreeNode* AVLTree::GetRoot()
 {
-	PrintAVLTree(_root);
+	return _root;
 }
 
 void AVLTree::RemoveAll(AVLTreeNode* node)
