@@ -164,7 +164,8 @@ void ControllerAVLTree()
 
 void MainController()
 {
-    string menu = "Choose one of structure:\n1 - Red-black tree\n2 - AVL tree\nq - Quit\nYour choice: ";
+    string menu = "Choose one of structure:\
+                  \n1 - Red-black tree\n2 - AVL tree\nq - Quit\nYour choice: ";
     char mode = '\0';
 
     while (mode != 'q')

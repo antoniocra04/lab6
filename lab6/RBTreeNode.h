@@ -15,5 +15,11 @@ struct RBTreeNode
 	Color _color;
 	int _key;
 
-	RBTreeNode(const int& key, enum Color color, RBTreeNode* parent, RBTreeNode* right, RBTreeNode* left);
+	RBTreeNode(
+		const int& key, 
+		enum Color color, 
+		RBTreeNode* parent, 
+		RBTreeNode* right, 
+		RBTreeNode* left
+	);
 };

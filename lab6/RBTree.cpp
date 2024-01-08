@@ -1,7 +1,5 @@
 ﻿#include <iostream>
 #include "RBTree.h"
-#include "RBTreeNode.h"
-using namespace std;
 
 void RBTree::ChangeNodeInParent(RBTreeNode* node, RBTreeNode* changeNode)
 {

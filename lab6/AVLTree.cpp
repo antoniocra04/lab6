@@ -1,7 +1,5 @@
 #include "AVLTree.h"
 #include "AVLTreeNode.h"
-#include <iostream>
-using namespace std;
 
 AVLTree::AVLTree()
 {
@@ -159,7 +157,7 @@ AVLTreeNode* AVLTree::GetMin(AVLTreeNode* root)
 {
 	if (root == nullptr)
 	{
-		return NULL;
+		return nullptr;
 	}
 
 	AVLTreeNode* current = root;
